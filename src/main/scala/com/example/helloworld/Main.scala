@@ -22,9 +22,12 @@ object Main extends App {
   override def run(args: List[String]): ZIO[ZEnv, Nothing, ZExitCode] = (for {
     _ <- AppLogger.info("Starting HelloWorld service")
     _ <- ZIO.sleep(java.time.Duration.ofSeconds(5))
+    config <- AppConfig.fromConfig
+    _ <- ScheduledTask.run(config).fork
     _ <- HttpAppRunner.run(httpApp, 8080)
   } yield ZExitCode.success)
     .mapError(_ => ZExitCode.failure)
     .merge
     .provideCustomLayer(AppLogger.layer)
+
 }

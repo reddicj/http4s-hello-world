@@ -26,7 +26,7 @@ object HelloWorldServiceTest extends DefaultRunnableSpec {
       HttpTestUtils.checkRequest(
         run(Request(Method.GET, uri"/error")),
         Status.InternalServerError,
-        Option.empty[String]
+        Some("Boom!")
       )
     }
   )

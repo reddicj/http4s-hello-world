@@ -5,7 +5,7 @@ val LogbackVersion = "1.2.3"
 
 organization := "com.example"
 name := "hello-world-server"
-version := "1.0.2"
+version := "1.0.3"
 scalaVersion := "2.13.5"
   
 libraryDependencies ++= Seq(
@@ -19,7 +19,8 @@ libraryDependencies ++= Seq(
   "dev.zio" %% "zio-test" % ZIOVersion,
   "dev.zio" %% "zio-test-sbt" % ZIOVersion,
   "dev.zio" %% "zio-interop-cats" % "2.4.1.0",
-  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.3"
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.3",
+  "com.typesafe" % "config" % "1.4.1"
 )
   
 addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3")
