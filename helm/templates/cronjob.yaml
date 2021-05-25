@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello-world-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 0
+  failedJobsHistoryLimit: 0
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: docker.imanage.com/busybox:1.32.0
+            imagePullPolicy: IfNotPresent
+            command: ['sh', '-c', 'wget http://helloworld:8080/hello/cronjob -O /dev/null -q']
+          restartPolicy: OnFailure

@@ -5,7 +5,7 @@ val LogbackVersion = "1.2.3"
 
 organization := "com.example"
 name := "hello-world-server"
-version := "1.0.3"
+version := "1.0.4"
 scalaVersion := "2.13.5"
   
 libraryDependencies ++= Seq(
